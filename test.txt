@@ -1,0 +1,59 @@
+Проводится без авторизации
+
+POST (Регистрация нового пользователя)
+http://localhost:8081/TestTask/api/registration/new
+{
+	"username":"Jaina",
+	"password":"123"
+}
+
+GET (Проверка доступности занятого имени)
+http://localhost:8081/TestTask/api/registration/check
+{
+	"username":"Arthas"
+}
+
+GET (Проверка доступности свободного имени)
+http://localhost:8081/TestTask/api/registration/check
+{
+	"username":"KelThuzad"
+}
+
+
+
+Проводится с авторизацией
+GET (Отображение данных авторизованного пользователя)
+http://localhost:8081/TestTask/api/users/user/
+
+GET (Отображение всех животных из базы данных)
+http://localhost:8081/TestTask/api/users/allPets
+
+GET (Отображение всех животных авторизованного пользователя)
+http://localhost:8081/TestTask/api/users/user/pets/
+
+GET (Отображение животного по его id. В этом примере id 3)
+http://localhost:8081/TestTask/api/users/user/pets/3
+http://localhost:8081/TestTask/api/users/user/pets/20
+
+POST (Добавление питомца к авторизованному пользователю)
+http://localhost:8081/TestTask/api/users/user/pets/
+{
+    "name": "Uther",
+    "kind": "fish",
+    "birthday": "2022-07-10",
+    "sex": "m"
+}
+
+PUT
+http://localhost:8081/TestTask/api/users/user/pets/
+{
+    "id": "6",
+    "name": "Tirion",
+    "kind": "fish",
+    "birthday": "2022-07-15",
+    "sex": "m"
+}
+
+DELETE (Удаление питомца по его id. Удалить можно только питомца, принадлежащего авторизованному пользователю)
+http://localhost:8081/TestTask/api/users/user/pets/3
+http://localhost:8081/TestTask/api/users/user/pets/1
